@@ -15,11 +15,11 @@ PWD:=$(shell pwd)
 
 all: clean init
 	mkdir --parents $(PWD)/build/Boilerplate.AppDir/opera	
-	$(PWD)/bin/Apprepo.AppImage --destination=$(PWD)/build appdir boilerplate \
+	$(PWD)/bin/apprepo.AppImage --destination=$(PWD)/build appdir boilerplate \
 	    libgdk-pixbuf2.0-0 libatk1.0-0 libatk-bridge2.0-0 libgtk2.0-0 \
 	    libreadline8 at-spi2-core libpango-1.0-0 libselinux1 libgtk-3-0 libwayland-cursor0
 
-	wget --output-document="$(PWD)/build/build.deb" https://download3.operacdn.com/pub/opera-developer/87.0.4366.0/linux/opera-developer_87.0.4366.0_amd64.deb
+	wget --output-document="$(PWD)/build/build.deb" https://download3.operacdn.com/pub/opera-developer/108.0.5054.0/linux/opera-developer_108.0.5054.0_amd64.deb
 	dpkg -x $(PWD)/build/build.deb $(PWD)/build
 
 	echo '' >> $(PWD)/build/Boilerplate.AppDir/AppRun
@@ -47,11 +47,11 @@ all: clean init
 init:
 	mkdir --parents $(PWD)/bin
 
-	wget https://apprepo.de/appimage/download/apprepo \
-		--output-document=$(PWD)/bin/Apprepo.AppImage
-	chmod +x $(PWD)/bin/Apprepo.AppImage
+	wget https://github.com/area-of-dev/apprepo.AppImage/releases/download/latest/apprepo.AppImage \
+		--output-document=$(PWD)/bin/apprepo.AppImage
+	chmod +x $(PWD)/bin/apprepo.AppImage
 
-	wget https://github.com/AppImage/AppImageKit/releases/download/13/appimagetool-x86_64.AppImage \
+	wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage \
 		--output-document=$(PWD)/bin/appimagetool.AppImage
 	chmod +x $(PWD)/bin/appimagetool.AppImage
 
